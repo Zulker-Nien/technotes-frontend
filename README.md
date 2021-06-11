@@ -19,4 +19,5 @@ Important
 -----------
 Work Update
 -----------
-- The delete and edit portions are yet to be integrated. I have office work, so I am doing it on my free time.
+- The delete and edit portions are yet to be integrated. 
+- The users will be able to share their respective notes once the above part is completed.
