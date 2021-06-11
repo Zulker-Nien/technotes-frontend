@@ -1,5 +1,6 @@
 # technotes-frontend
-# author - Zulker_Nien
+
+Author - Zulker_Nien
 
 Key Notes:
 ---------
@@ -14,7 +15,6 @@ Key Notes:
 Important
 ---------
 - The registration and login has been merged into one. So when you type in the email, the JWT token gets authenticated and you will be logged in.
-
 
 -----------
 Work Update
