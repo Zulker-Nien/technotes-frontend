@@ -1,0 +1,132 @@
+.mainContainer {
+  height: 100vh;
+  width: 50vw;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  /* position: absolute; */
+  margin: 2% 2%;
+  height: 40vh;
+  width: 20vw;
+  /* position: absolute; */
+  /* margin: 2% 2%; */
+  padding-top: 20px;
+  /* border: 2px solid black; */
+  background-color: white;
+  text-align: center;
+}
+.afterLogin{
+
+}
+
+.notepad {
+  height: 100vh;
+  width: 50vw;
+  /* animation: mymove 5s linear infinite alternate; */
+  background-size: 120%;
+  background-image: url("./bg.jpeg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+
+.Notebtn {
+  height: 10vh;
+  width: 20vw;
+  border-radius: 20px;
+  margin: 0 2%;
+  color: white;
+  background-color: rgb(119, 119, 119);
+  transition: 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.Notebtn:hover {
+  background-color: white;
+  color: black;
+}
+
+table {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  overflow: auto;
+}
+
+td {
+  height: 5vh;
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  text-align: center;
+  color: white;
+}
+
+td button{width: 5vw;
+}
+
+.id {
+  width: 10vw;
+  border-right: 1px solid gray;
+  color: white;
+}
+.title {
+  width: 50vw;
+  border-right: 1px solid gray;
+  color: white;
+}
+.actions {
+  width: 40vw;
+  color: white;
+}
+
+.AddNotes {
+  height: 80vh;
+  width: 40vw;
+}
+
+.toPer {
+  display: flex;
+}
+
+.bckbtn button {
+  position: absolute;
+  height: 5vh;
+  width: 10vw;
+  top: 0;
+  left: 0;
+  margin-left: 2%;
+  margin-top: 3%;
+  border-radius: 50px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.bckbtn2{
+  display: flex;
+  width: 50vw;
+  justify-content: flex-end;
+}
+.bckbtn2 button {
+  position: absolute;
+  height: 5vh;
+  width: 10vw;
+  top: 0;
+  margin-right: 2%;
+  margin-top: 3%;
+  border-radius: 50px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
