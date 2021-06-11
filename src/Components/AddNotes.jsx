@@ -4,11 +4,6 @@ import NoteStore from "../Stores/noteStore";
 import "../App.css"
 import { observer } from "mobx-react-lite";
 
-const genderOptions = [
-  { key: "m", text: "Male", value: "male" },
-  { key: "f", text: "Female", value: "female" },
-  { key: "o", text: "Other", value: "other" },
-];
 
 const AddNotes = (props) => {
   const noteStore = useContext(NoteStore);
