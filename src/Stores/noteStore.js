@@ -35,5 +35,37 @@ class NoteStore {
       console.log(error);
     }
   };
+  editNote = async (prevNote, newNote) => {
+    const body = {
+      title: newNote.title,
+      details: newNote.details,
+    };
+    try {
+      const note = await Agent.notes.noteEdit(prevNote.id, body);
+      runInAction(() =>{
+        console.log(note);
+        let temp = this.notes.slice()
+        let index = this.notes.indexOf(prevNote)
+        temp[index] = note
+        this.notes = temp
+        console.log(this.notes)
+      })
+    } catch (error) {
+      throw error
+    }
+  };
+  deleteNote = async (note) =>{
+    try {
+      const response = await Agent.notes.noteDelete(note.id);
+      runInAction(() => {
+        if(response.note === "deleted") {
+          this.notes = this.notes.filter(n => n.id === note.id)
+        }
+      });
+    } catch (error) {
+      console.log(error)
+      
+    }
+  }
 }
 export default createContext(new NoteStore());

@@ -30,7 +30,7 @@ const notes = {
     addNotes: (body) => request.post(`api/v1/note`,body),
     noteDetails: (id) => request.get(`api/v1/note/${id}`),
     noteList:() => request.get(`api/v1/note`),
-    noteEdit: (id) => request.put(`api/v1/note/${id}`),
+    noteEdit: (id, body) => request.put(`api/v1/note/${id}`, body),
     noteDelete: (id) => request.del(`api/v1/note/${id}`),
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 import ViewNotes from "./ViewNotes";
 import AddNotes from "./AddNotes";
+import Share from "./Share";
 function Notepad() {
   const [view, setView] = useState(false);
   const [create, setCreate] = useState(false);
@@ -9,7 +10,7 @@ function Notepad() {
 
   return (
     <div className="notepad">
-      {!view && !create ? (
+      {!view && !create && !share ? (
         <>
           <div
             className="Notebtn"
@@ -36,10 +37,12 @@ function Notepad() {
             <h3>Share With Friends</h3>
           </div>
         </>
-      ) : view && !create ? (
-        <ViewNotes setView={setView} setCreate={setCreate} />
+      ) : view && !create && !share ? (
+        <ViewNotes setView={setView} setCreate={setCreate} setShare={setShare}/>
+      ) : !view && create && !share ? (
+        <AddNotes setView={setView} setCreate={setCreate} setShare={setShare}/>
       ) : (
-        <AddNotes setView={setView} setCreate={setCreate} />
+        <Share setView={setView} setCreate={setCreate} setShare={setShare}/>
       )}
     </div>
   );
