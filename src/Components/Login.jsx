@@ -19,7 +19,7 @@ const Login = () => {
     login(email);
   };
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit} >
       <Form.Field>
         <label>Enter your mail</label>
         <input

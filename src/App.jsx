@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 
 function App() {
   const userStore = useContext(UserStore);
-  const { userObs } = userStore;
+  const { userObs, email } = userStore;
 
   return (
     <>
@@ -22,7 +22,7 @@ function App() {
           </div>
         ) : (
           <div className="mainContainer">
-            <div className="afterLogin"><h1>You are Logged in Senpai with NAME</h1></div>
+            <div className="afterLogin"><h1>You are Logged in {email}</h1></div>
           </div>
         )}
 

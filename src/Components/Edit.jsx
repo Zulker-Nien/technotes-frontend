@@ -1,17 +1,15 @@
+import { observer } from "mobx-react-lite";
 import React, { useContext, useState } from "react";
 import { Form, Input, TextArea, Button, Select } from "semantic-ui-react";
 import NoteStore from "../Stores/noteStore";
-import "../App.css"
-import { observer } from "mobx-react-lite";
 
-
-const AddNotes = (props) => {
+const Edit = (props) => {
   const noteStore = useContext(NoteStore);
-  const { addNote } = noteStore;
+  const { editNote } = noteStore;
 
   const [body, setBody] = useState({
-    title: "",
-    details: "",
+    title: props.note.title,
+    details: props.note.details,
   });
   const onChangeHandler = (e) => {
     const { value, name } = e.target;
@@ -22,30 +20,25 @@ const AddNotes = (props) => {
   };
 
   const onSubmitHandler = () => {
-    addNote(body);
-    props.setView(true);
-    props.setCreate(false);
-  };
-  
-  const onBackHandler = () => {
-    props.setView(false);
-    props.setCreate(false);
-    props.setShare(false);
-  };
+    console.log(body);
+    editNote(props.note, body)
+      .then(() => props.setEdit(false))
+      .catch((error) => console.log(error));
 
+    // props.setView(true);
+    // props.setCreate(false);
+    // props.setShare(false);
+  };
   return (
     <div className="AddNotes">
-      <div className="bckbtn" onClick={onBackHandler}>
-        <button >BACK</button>
-      </div>
       <Form onSubmit={onSubmitHandler}>
-        <Form.Group widths="equal" >
-          
+        <Form.Group widths="equal">
           <Form.Field
             id="form-input-control-first-name"
             control={Input}
             placeholder="Add a Title"
             name="title"
+            value={body.title}
             onChange={onChangeHandler}
           />
         </Form.Group>
@@ -54,9 +47,9 @@ const AddNotes = (props) => {
           control={TextArea}
           placeholder="Write to your heart's content"
           onChange={onChangeHandler}
+          value={body.details}
           name="details"
         />
-
         <Form.Field
           id="form-button-control-public"
           control={Button}
@@ -67,4 +60,4 @@ const AddNotes = (props) => {
   );
 };
 
-export default observer(AddNotes);
+export default observer(Edit);
