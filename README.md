@@ -19,5 +19,10 @@ Important
 -----------
 Work Update
 -----------
-- The delete and edit portions are yet to be integrated. 
-- The users will be able to share their respective notes once the above part is completed.
+------------> DONE <------------
+
+
+------------
+Default User (USE THIS TO TEST OR CREATE YOUR OWN)
+------------
+jon@doe.com
