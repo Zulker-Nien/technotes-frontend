@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 
 function App() {
   const userStore = useContext(UserStore);
-  const { userObs, email } = userStore;
+  const { userObs, email, logout } = userStore;
 
   return (
     <>
@@ -23,6 +23,7 @@ function App() {
         ) : (
           <div className="mainContainer">
             <div className="afterLogin"><h1>You are Logged in {email}</h1></div>
+            <button onClick={logout}>Logout</button>
           </div>
         )}
 
@@ -32,6 +33,8 @@ function App() {
             <Notepad />
           </div>
         )}
+
+        
       </div>
     </>
   );

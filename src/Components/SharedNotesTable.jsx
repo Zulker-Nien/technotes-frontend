@@ -16,8 +16,9 @@ const SharedNotesTable = () => {
         <thead>
           <tr>
             <th className="id">ID</th>
-            <th className="title">Title</th>
-            <th className="actions">Email</th>
+            <th className="title2">Title</th>
+            <th className="details">Details</th>
+            <th className="eformail">Email</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,7 @@ const SharedNotesTable = () => {
               <td>{model.note.id}</td>
               <td>{model.note.title}</td>
               <td>{model.target_user.mail}</td>
+              <td>{model.note.details}</td>
             </tr>
           ))}
         </tbody>
