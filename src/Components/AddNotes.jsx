@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Form, Input, TextArea, Button, Select } from "semantic-ui-react";
+import { Form, Input, TextArea, Button } from "semantic-ui-react";
 import NoteStore from "../Stores/noteStore";
 import "../App.css"
 import { observer } from "mobx-react-lite";

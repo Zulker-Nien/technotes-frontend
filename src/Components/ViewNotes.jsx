@@ -4,6 +4,7 @@ import "../App.css";
 import NoteStore from "../Stores/noteStore";
 import View from "./View";
 import Edit from "./Edit";
+import SharedTo from "./SharedTo";
 
 const ViewNotes = (props) => {
   const noteStore = useContext(NoteStore);
@@ -11,6 +12,7 @@ const ViewNotes = (props) => {
   const [details, setDetails] = useState(false);
   const [edit, setEdit] = useState(false);
   const [selected, setSelected] = useState();
+  const [share, setShare] = useState(false);
 
   const onSubmitHandler = () => {
     props.setView(false);
@@ -23,7 +25,7 @@ const ViewNotes = (props) => {
   };
   useEffect(() => {
     listNotes();
-  }, [listNotes, notes]);
+  }, [listNotes, edit]);
 
   return (
     <div>
@@ -31,7 +33,7 @@ const ViewNotes = (props) => {
         <button>BACK</button>
       </div>
 
-      {!details && !edit ? (
+      {!details && !edit && !share ? (
         <>
           <div className="bckbtn2" onClick={onAddHandler}>
             <button>Add a Note</button>
@@ -68,15 +70,28 @@ const ViewNotes = (props) => {
                       edit
                     </button>
                     <button onClick={() => deleteNote(note)}>delete</button>
+                    <button
+                      onClick={() => {
+                        setSelected(note);
+                        setDetails(false);
+                        setShare(true);
+                      }}
+                    >
+                      Share
+                    </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </>
-      ) : details && !edit ? (
+      ) : details && !edit && !share ? (
         <View note={selected} />
-      ) : <Edit note={selected} setEdit={setEdit} />}
+      ) : !details && edit && !share ? (
+        <Edit note={selected} setEdit={setEdit} />
+      ) : (
+        <SharedTo note={selected} setView={props.setView} setCreate={props.setCreate} setShare={props.setShare}/>
+      )}
     </div>
   );
 };

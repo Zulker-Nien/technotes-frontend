@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import ViewNotes from "./ViewNotes";
 import AddNotes from "./AddNotes";
+import { Dimmer, Loader } from "semantic-ui-react";
 import Share from "./Share";
 function Notepad() {
   const [view, setView] = useState(false);
   const [create, setCreate] = useState(false);
   const [share, setShare] = useState(false);
-
+  
   return (
     <div className="notepad">
+      
       {!view && !create && !share ? (
         <>
           <div
@@ -34,15 +36,19 @@ function Notepad() {
               setShare(true);
             }}
           >
-            <h3>Share With Friends</h3>
+            <h3>Shared Files</h3>
           </div>
         </>
       ) : view && !create && !share ? (
-        <ViewNotes setView={setView} setCreate={setCreate} setShare={setShare}/>
+        <ViewNotes
+          setView={setView}
+          setCreate={setCreate}
+          setShare={setShare}
+        />
       ) : !view && create && !share ? (
-        <AddNotes setView={setView} setCreate={setCreate} setShare={setShare}/>
+        <AddNotes setView={setView} setCreate={setCreate} setShare={setShare} />
       ) : (
-        <Share setView={setView} setCreate={setCreate} setShare={setShare}/>
+        <Share setView={setView} setCreate={setCreate} setShare={setShare} />
       )}
     </div>
   );
