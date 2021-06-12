@@ -21,10 +21,19 @@ function App() {
             </div>
           </div>
         ) : (
-          <div className="mainContainer">
-            <div className="afterLogin"><h1>You are Logged in {email}</h1></div>
-            <button onClick={logout}>Logout</button>
-          </div>
+          <>
+          
+            <div className="mainContainer">
+              <div>
+                <h1>You are Logged in with {email}</h1>
+              </div>
+              <br />
+            </div>
+            <div className="logoutCnt">
+            <button className="logout" onClick={logout}>
+              Logout
+            </button></div>
+          </>
         )}
 
         {/* TO VIEW THE LOGGED IN PANEL */}
@@ -33,8 +42,6 @@ function App() {
             <Notepad />
           </div>
         )}
-
-        
       </div>
     </>
   );
