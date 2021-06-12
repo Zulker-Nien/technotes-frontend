@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 
 function App() {
   const userStore = useContext(UserStore);
-  const { userObs, email } = userStore;
+  const { userObs, email, logout } = userStore;
 
   return (
     <>
@@ -21,9 +21,19 @@ function App() {
             </div>
           </div>
         ) : (
-          <div className="mainContainer">
-            <div className="afterLogin"><h1>You are Logged in {email}</h1></div>
-          </div>
+          <>
+          
+            <div className="mainContainer">
+              <div>
+                <h1>You are Logged in with {email}</h1>
+              </div>
+              <br />
+            </div>
+            <div className="logoutCnt">
+            <button className="logout" onClick={logout}>
+              Logout
+            </button></div>
+          </>
         )}
 
         {/* TO VIEW THE LOGGED IN PANEL */}

@@ -27,6 +27,12 @@ class UserStore {
       console.log(error);
     }
   };
+
+  logout = () => {
+    this.userObs = null;
+    this.email = ""
+    localStorage.removeItem("jwt")
+  }
 }
 
 export default createContext(new UserStore());
