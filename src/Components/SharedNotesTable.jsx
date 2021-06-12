@@ -26,8 +26,8 @@ const SharedNotesTable = () => {
             <tr key={i} style={{ color: "white" }}>
               <td>{model.note.id}</td>
               <td>{model.note.title}</td>
-              <td>{model.target_user.mail}</td>
               <td>{model.note.details}</td>
+              <td>{model.target_user.mail}</td>
             </tr>
           ))}
         </tbody>
